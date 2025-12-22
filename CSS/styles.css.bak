@@ -1,0 +1,16 @@
+body {
+    background-color: lightblue;
+    color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: navy;
+    margin-left: 20px;
+}

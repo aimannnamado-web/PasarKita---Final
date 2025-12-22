@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html lang = "en">
+
+<head>
+
+	<meta charset = "utf-8">
+	<title>PasarKita - Login</title>
+	<link rel = "icon" type = "image/x-icon" href = "image/PasarKita_Logo.jpg">
+	<link rel = "stylesheet" href = "CSS/styles.css">
+	
+	<style>
+	
+	.login-container{
+	
+	text-align: center;
+	background: white;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+	
+	}
+	
+	.forgot-link{
+	
+	display: block;
+	margin-top: 10px;
+	color: #0066cc;
+	text-decoration: none;
+	font-size: 14px;
+	
+	}
+	.form-link: hover{
+	
+	text-decoration: underline;
+	color: orange;
+	
+	}
+	
+	.form-group{
+	
+	margin-bottom: 15px;
+	
+	}
+	
+	.form-input{
+	padding: 8px; 
+	width: 200px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	
+	}
+	</style>
+</head>
+<body>
+
+<img src = "image/PasarKita_Logo.jpg" alt = "PasarKita" class = "website-logo">
+<h2>PasarKita - Login</h2>
+
+<div class = "login-container">
+
+
+<form action = "login.php"  method = "POST">
+
+	<div class = "form-group">
+
+	<label>Username:</label>
+	<input type = "text" name = "username" placeholder = "Enter you username..." required class = "form-input">
+	</div>
+	
+	<br><br>
+	
+	<div class = "form-group">
+	
+	<label>Password:</label>
+	<input type = "password" name = "password" placeholder = "Enter you password..." required class = "form-input">
+	</div>
+	
+	<button type = "submit" id = "login-btn" style = "padding: 10px 20px; background: yellow; color: black; border: none; border-radius: 5px; cursor: pointer;"> Login</button>
+	<a href = "forgot-password.php" class = "form-link">forgot password</a>
+	<a href = "register.php" class = "form-link">Register</a>
+	
+</form>
+
+</body>
+
+</html>
