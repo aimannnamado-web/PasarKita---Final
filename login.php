@@ -85,12 +85,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         }
 
         .form-group {
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 0 auto 15px;
+            max-width: 450px;
+        }
+
+        .form-group label {
+            width: 150px;
+            text-align: left;
+            margin-right: 15px;
         }
 
         .form-input {
             padding: 8px;
-            width: 200px;
+            width: 250px;
             border: 1px solid #ccc;
             border-radius: 6px;
         }

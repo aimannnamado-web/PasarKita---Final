@@ -24,7 +24,7 @@
     .register-container 
     {
        
-        text-align: center;
+    text-align: center;
 	background: white;
 	padding: 30px;
 	border-radius: 10px;
@@ -34,9 +34,11 @@
 
     .form-group 
     {
-        margin-bottom: 15px;
+        display: flex;
         align-items: center;
-        
+        justify-content: flex-start;
+        margin: 0 auto 15px;
+        max-width: 450px; /* constrains the row inside the centered white box */
     }
 
 .form-group label 
@@ -44,7 +46,7 @@
         width: 150px;               
         text-align: left;           
         margin-right: 15px;         
-        font-weight: bold;
+        /* font-weight: bold; */
     }
 
 .form-input 
@@ -172,8 +174,8 @@ if (strlen($username) < 5)
 <form action="register.php" method="POST" novalidate>
 
     <div class="form-group">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" class="form-input"
+    <label for="username">Username:</label>
+    <input id="username" type="text" name="username" required placeholder="Enter your username..." class="form-input"
            value="<?= htmlspecialchars($username ?? '') ?>">
     <span class="error-msg" id="username-error">
         <?= $usernameError ?? '' ?>
@@ -181,24 +183,24 @@ if (strlen($username) < 5)
 </div>
 
 <div class="form-group">
-    <label>Password</label>
-    <input id="password" type="password" name="password" class="form-input">
+    <label for="password">Password:</label>
+    <input id="password" type="password" name="password" required placeholder="Enter your password..." class="form-input">
     <span class="error-msg" id="password-error">
         <?= $passwordError ?? '' ?>
     </span>
 </div>
 
 <div class="form-group">
-    <label>Re-enter Password</label>
-    <input id="confirm_password" type="password" name="confirm_password" class="form-input">
+    <label for="confirm_password">Re-enter Password:</label>
+    <input id="confirm_password" type="password" name="confirm_password" required placeholder="Re-enter your password..." class="form-input">
     <span class="error-msg" id="confirm-error">
         <?= $confirmError ?? '' ?>
     </span>
 </div>
 
 <div class="form-group">
-    <label>Favourite Colour</label>
-    <input id="security_answer" type="text" name="security_answer" class="form-input"
+    <label for="security_answer">Favourite Colour:</label>
+    <input id="security_answer" type="text" name="security_answer" required placeholder="Enter your favourite colour..." class="form-input"
            value="<?= htmlspecialchars($securityAnswer ?? '') ?>">
     <span id="security-error" class="error-msg"><?= $securityError ?? '' ?></span>
 </div>
