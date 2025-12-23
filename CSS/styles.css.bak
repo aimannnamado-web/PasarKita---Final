@@ -14,3 +14,12 @@ h2 {
     color: navy;
     margin-left: 20px;
 }
+
+.website-logo{
+	
+	width: 100px;
+	height: auto;
+	margin-bottom: 15px;
+	
+	
+}

@@ -1,3 +1,7 @@
+<?php
+session_start();
+$server_username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -286,7 +290,7 @@
             // Check if user is logged in
             if (!isLoggedIn()) {
                 alert('Please login to chat with the seller');
-                window.location.href = 'Login.php';
+                window.location.href = 'login.php';
                 return;
             }
             
@@ -298,14 +302,19 @@
             closeProductModal();
         }
         
+        // Server-side username (populated by PHP)
+        const SERVER_USERNAME = "<?= addslashes($server_username) ?>";
+
         function checkLoginStatus() {
-            // This would check with backend if user is logged in
-            // For now, we'll simulate by checking localStorage
-            const username = localStorage.getItem('username');
+            // Prefer server session if present, otherwise use localStorage
+            const username = SERVER_USERNAME || localStorage.getItem('username');
             if (username) {
                 document.getElementById('userWelcome').textContent = `Welcome, ${username}`;
                 document.getElementById('loginBtn').style.display = 'none';
                 document.getElementById('userInfo').style.display = 'block';
+            } else {
+                document.getElementById('loginBtn').style.display = 'inline-block';
+                document.getElementById('userInfo').style.display = 'none';
             }
         }
         
@@ -315,8 +324,9 @@
         }
         
         function logout() {
+            // Clear client-side login flag and call server-side logout to destroy PHP session
             localStorage.removeItem('username');
-            window.location.href = 'Login.php';
+            window.location.href = 'logout.php';
         }
         
         // Close modals when clicking outside
@@ -344,13 +354,13 @@
             <!-- User Info -->
             <div id="userInfo" style="display: none;">
                 <span id="userWelcome" style="color: #475569;"></span>
-                <button onclick="logout()" style="margin-left: 10px; padding: 8px 15px; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                <button onclick="logout()" style="color: #3b82f6; text-decoration: none;">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </button>
             </div>
             
             <!-- Login Button (shown when not logged in) -->
-            <a href="Login.php" id="loginBtn" style="color: #3b82f6; text-decoration: none;">
+            <a href="login.php" id="loginBtn" style="color: #3b82f6; text-decoration: none;">
                 <i class="fas fa-user"></i> Login
             </a>
         </div>
